@@ -1,3 +1,11 @@
+##Changing date column from text format to date format by adding a new column named d_format
+ALTER TABLE `portfolio_project_1`.`south_america` 
+ADD COLUMN `d_format` DATE NULL AFTER `human_development_index`;
+ALTER TABLE `portfolio_project_1`.`south_america` 
+DROP COLUMN `d_format`;
+
+update	south_america set d_format = STR_TO_DATE(date, '%d/%m/%Y');
+
 ##Grouping Continent`s cases and deaths by country/month-year in a temporary table
 drop temporary table continent_table_1;
 CREATE TEMPORARY TABLE continent_table_1
