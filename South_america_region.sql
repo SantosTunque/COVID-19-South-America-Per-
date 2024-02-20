@@ -51,11 +51,9 @@ select location, m_y,(c.total_cases/pop)*100 from continent_table_1 c
 where not m_y  = "February 2024";
 
 
-
-
-
 ###############
 ###############
+##Creating a column for monthly new cases and new deaths
 select c1.*,
 coalesce(c1.Continent_cases-(select c2.Continent_cases
 							from continent_table_final c2
